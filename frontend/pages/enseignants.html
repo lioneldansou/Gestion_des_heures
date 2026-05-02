@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Enseignants</title>
+    <link rel="stylesheet" href="../css/all.min.css">
+    <link rel="stylesheet" href="../css/enseignants.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2><i class="fas fa-graduation-cap"></i> TPG</h2>
+        <ul>
+            <li><a href="dashboard-rh.html"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="enseignants.html"><i class="fas fa-chalkboard-teacher"></i> Enseignants</a></li>
+            <li><a href="matieres.html"><i class="fas fa-book"></i> Matières</a></li>
+            <li><a href="heures.html"><i class="fas fa-clock"></i> Heures</a></li>
+            <li><a href="etats.html"><i class="fas fa-file-alt"></i> États de paiement</a></li>
+            <li><a href="../index.html"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+        <h1>Gestion des enseignants</h1>
+
+        <!-- Formulaire -->
+        <!-- Bouton ouvrir modal -->
+<button class="btn-ouvrir" onclick="ouvrirModal()">
+    <i class="fas fa-plus"></i> Ajouter un enseignant
+</button>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+    <div class="modal-contenu">
+        <h2>Ajouter un enseignant</h2>
+        <div class="form-container">
+            <input type="text" id="nom" placeholder="Nom">
+            <input type="text" id="prenom" placeholder="Prénom">
+            <select id="grade">
+                <option>Grade</option>
+                <option>Assistant</option>
+                <option>Maître-Assistant</option>
+                <option>Professeur</option>
+                <option>Autres</option>
+            </select>
+            <select id="statut">
+                <option>Statut</option>
+                <option>Permanent</option>
+                <option>Vacataire</option>
+            </select>
+            <select id="departement">
+                <option>Département</option>
+            </select>
+            <input type="number" id="taux" placeholder="Taux horaire">
+            <input type="number" id="heures" placeholder="Heures contractuelles">
+        </div>
+        <div class="modal-boutons">
+            <button class="btn-annuler" onclick="fermerModal()">Annuler</button>
+            <button class="btn-ajouter" id="btnAjouter">Ajouter</button>
+        </div>
+    </div>
+</div>
+        <!-- Tableau -->
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Grade</th>
+                    <th>Statut</th>
+                    <th>Département</th>
+                    <th>Taux horaire</th>
+                    <th>Heures contractuelles</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+               
+            </tbody>
+        </table>
+
+    </main>
+
+</div>
+<script src="../js/enseignants.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Corps de la page */
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('../images/index.jpg') no-repeat center center / cover;
+}
+
+/* Conteneur principal du formulaire de connexion */
+.conteneur-connexion {
+    background: rgba(255, 255, 255, 0.2); /* fond transparent avec effet verre */
+    backdrop-filter: blur(10px);          /* effet flou derrière le conteneur */
+    -webkit-backdrop-filter: blur(10px);  /* compatibilité Safari */
+    padding: 60px;
+    border-radius: 15px;
+    width: 500px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+/* Titre de l'application */
+h1 {
+    margin-bottom: 25px;
+    font-size: 22px;
+    color: #1e3c72;
+    white-space: nowrap; /* force le titre sur une seule ligne */
+}
+
+/* Labels des champs */
+label {
+    display: block;
+    text-align: left;
+    margin-top: 15px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Champs de saisie */
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: 0.3s;
+}
+
+/* Champ actif */
+input:focus {
+    border-color: #2a5298;
+    box-shadow: 0 0 5px rgba(42,82,152,0.5);
+}
+
+/* Bouton de connexion */
+button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #1e3c72;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Effet survol du bouton */
+button:hover {
+    background: #16325c;
+    transform: scale(1.02);
+}
+
+/* Responsive mobile */
+@media (max-width: 400px) {
+    .conteneur-connexion {
+        width: 90%;
+        padding: 30px;
+    }
+}

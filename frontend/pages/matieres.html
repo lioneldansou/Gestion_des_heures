@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Matières</title>
+    <link rel="stylesheet" href="../css/all.min.css">
+    <link rel="stylesheet" href="../css/matieres.css">
+</head>
+<body>
+
+<div class="container">
+
+    <aside class="sidebar">
+        <h2><i class="fas fa-graduation-cap"></i> TPG</h2>
+        <ul>
+            <li><a href="dashboard-rh.html"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="enseignants.html"><i class="fas fa-chalkboard-teacher"></i> Enseignants</a></li>
+            <li><a href="matieres.html"><i class="fas fa-book"></i> Matières</a></li>
+            <li><a href="heures.html"><i class="fas fa-clock"></i> Heures</a></li>
+            <li><a href="etats.html"><i class="fas fa-file-alt"></i> États de paiement</a></li>
+            <li><a href="../index.html"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
+        </ul>
+    </aside>
+
+    <main class="main">
+        <h1>Gestion des matières</h1>
+
+        <button class="btn-ouvrir" onclick="ouvrirModal()">
+            <i class="fas fa-plus"></i> Ajouter une matière
+        </button>
+
+        <div class="modal" id="modal">
+            <div class="modal-contenu">
+                <h2>Ajouter une matière</h2>
+                <div class="form-container">
+                    <input type="text" id="intitule" placeholder="Intitulé du cours">
+                    <input type="text" id="filiere" placeholder="Filière">
+                    <select id="niveau">
+                        <option value="">Niveau</option>
+                        <option value="L1">L1</option>
+                        <option value="L2">L2</option>
+                        <option value="L3">L3</option>
+                        <option value="M1">M1</option>
+                        <option value="M2">M2</option>
+                    </select>
+                    <input type="number" id="volume_horaire_prevu" placeholder="Volume horaire prévu">
+                    <select id="departement_id">
+                        <option value="">Département</option>
+                    </select>
+                </div>
+                <div class="modal-boutons">
+                    <button class="btn-annuler" onclick="fermerModal()">Annuler</button>
+                    <button class="btn-ajouter" id="btnAjouter">Ajouter</button>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Intitulé</th>
+                    <th>Filière</th>
+                    <th>Niveau</th>
+                    <th>Volume horaire</th>
+                    <th>Département</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </main>
+
+</div>
+
+<script src="../js/matieres.js"></script>
+</body>
+</html>

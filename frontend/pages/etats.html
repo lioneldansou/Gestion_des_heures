@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>États de paiement</title>
+    <link rel="stylesheet" href="../css/all.min.css">
+    <link rel="stylesheet" href="../css/etats.css">
+</head>
+<body>
+
+<div class="container">
+
+    <aside class="sidebar">
+        <h2><i class="fas fa-graduation-cap"></i> TPG</h2>
+        <ul>
+            <li><a href="dashboard-rh.html"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="enseignants.html"><i class="fas fa-chalkboard-teacher"></i> Enseignants</a></li>
+            <li><a href="matieres.html"><i class="fas fa-book"></i> Matières</a></li>
+            <li><a href="heures.html"><i class="fas fa-clock"></i> Heures</a></li>
+            <li><a href="etats.html"><i class="fas fa-file-alt"></i> États de paiement</a></li>
+            <li><a href="../index.html"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
+        </ul>
+    </aside>
+
+    <main class="main">
+        <h1>États de paiement</h1>
+
+        <div class="filtres">
+            <select id="filtre_enseignant">
+                <option value="">Tous les enseignants</option>
+            </select>
+            <select id="filtre_periode">
+                <option value="">Toutes les périodes</option>
+            </select>
+            <button onclick="genererEtat()">
+                <i class="fas fa-search"></i> Générer l'état
+            </button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Enseignant</th>
+                    <th>Total CM</th>
+                    <th>Total TD</th>
+                    <th>Total TP</th>
+                    <th>Total Heures</th>
+                    <th>Taux Horaire</th>
+                    <th>Montant Total</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+    </main>
+
+</div>
+
+<script src="../js/etats.js"></script>
+</body>
+</html>

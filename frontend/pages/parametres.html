@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Paramètres</title>
+    <link rel="stylesheet" href="../css/all.min.css">
+    <link rel="stylesheet" href="../css/utilisateurs.css">
+</head>
+<body>
+
+<div class="container">
+
+    <aside class="sidebar">
+        <h2><i class="fas fa-graduation-cap"></i> TPG</h2>
+        <ul>
+            <li><a href="dashboard-admin.html"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="utilisateurs.html"><i class="fas fa-users"></i> Utilisateurs</a></li>
+            <li><a href="departements.html"><i class="fas fa-building"></i> Départements</a></li>
+            <li><a href="parametres.html"><i class="fas fa-cog"></i> Paramètres</a></li>
+            <li><a href="../index.html"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
+        </ul>
+    </aside>
+
+    <main class="main">
+        <h1>Paramètres</h1>
+
+        <div class="form-parametres">
+            <div class="parametre-item">
+                <label>Coefficient CM → TD</label>
+                <input type="number" id="coef_cm_td" placeholder="Ex: 1.5" step="0.1">
+                <button onclick="sauvegarder('coef_cm_td')">
+                    <i class="fas fa-save"></i> Sauvegarder
+                </button>
+            </div>
+            <div class="parametre-item">
+                <label>Coefficient CM → TP</label>
+                <input type="number" id="coef_cm_tp" placeholder="Ex: 2" step="0.1">
+                <button onclick="sauvegarder('coef_cm_tp')">
+                    <i class="fas fa-save"></i> Sauvegarder
+                </button>
+            </div>
+            <div class="parametre-item">
+                <label>Taux horaire par défaut (FCFA)</label>
+                <input type="number" id="taux_defaut" placeholder="Ex: 5000">
+                <button onclick="sauvegarder('taux_defaut')">
+                    <i class="fas fa-save"></i> Sauvegarder
+                </button>
+            </div>
+            <div class="parametre-item">
+                <label>Heures contractuelles par défaut</label>
+                <input type="number" id="heures_contrat_defaut" placeholder="Ex: 192">
+                <button onclick="sauvegarder('heures_contrat_defaut')">
+                    <i class="fas fa-save"></i> Sauvegarder
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+</div>
+
+<script src="../js/parametres.js"></script>
+</body>
+</html>

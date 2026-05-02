@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Heures effectuées</title>
+    <link rel="stylesheet" href="../css/all.min.css">
+    <link rel="stylesheet" href="../css/heures.css">
+</head>
+<body>
+
+<div class="container">
+
+    <aside class="sidebar">
+        <h2><i class="fas fa-graduation-cap"></i> TPG</h2>
+        <ul>
+            <li><a href="dashboard-rh.html"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="enseignants.html"><i class="fas fa-chalkboard-teacher"></i> Enseignants</a></li>
+            <li><a href="matieres.html"><i class="fas fa-book"></i> Matières</a></li>
+            <li><a href="heures.html"><i class="fas fa-clock"></i> Heures</a></li>
+            <li><a href="etats.html"><i class="fas fa-file-alt"></i> États de paiement</a></li>
+            <li><a href="../index.html"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
+        </ul>
+    </aside>
+
+    <main class="main">
+        <h1>Gestion des heures effectuées</h1>
+
+        <button class="btn-ouvrir" onclick="ouvrirModal()">
+            <i class="fas fa-plus"></i> Saisir des heures
+        </button>
+
+        <div class="modal" id="modal">
+            <div class="modal-contenu">
+                <h2>Saisir des heures</h2>
+                <div class="form-container">
+                    <select id="enseignant_id">
+                        <option value="">Enseignant</option>
+                    </select>
+                    <select id="matiere_id">
+                        <option value="">Matière</option>
+                    </select>
+                    <select id="periode_id">
+                        <option value="">Période</option>
+                    </select>
+                    <input type="date" id="date_cours">
+                    <select id="type_heure">
+                        <option value="">Type d'heure</option>
+                        <option value="CM">CM</option>
+                        <option value="TD">TD</option>
+                        <option value="TP">TP</option>
+                    </select>
+                    <input type="number" id="duree" placeholder="Durée (heures)" step="0.5">
+                    <input type="text" id="salle" placeholder="Salle">
+                    <input type="text" id="observations" placeholder="Observations">
+                </div>
+                <div class="modal-boutons">
+                    <button class="btn-annuler" onclick="fermerModal()">Annuler</button>
+                    <button class="btn-ajouter" id="btnAjouter">Saisir</button>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Enseignant</th>
+                    <th>Matière</th>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Durée</th>
+                    <th>Salle</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </main>
+
+</div>
+
+<script src="../js/heures.js"></script>
+</body>
+</html>
