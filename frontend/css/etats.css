@@ -523,3 +523,7 @@ tbody tr:nth-child(5) { animation-delay: 0.25s; }
     color: #43cea2;
     font-weight: bold;
 }
+.complementaire {
+    color: #ff7e5f;
+    font-weight: bold;
+}

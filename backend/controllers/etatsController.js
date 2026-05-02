@@ -10,6 +10,7 @@ exports.getEtat = async (req, res) => {
         enseignants.nom,
         enseignants.prenom,
         enseignants.taux_horaire,
+        enseignants.heures_contractuelles,
         SUM(CASE WHEN type_heure = 'CM' THEN duree ELSE 0 END) as total_cm,
         SUM(CASE WHEN type_heure = 'TD' THEN duree ELSE 0 END) as total_td,
         SUM(CASE WHEN type_heure = 'TP' THEN duree ELSE 0 END) as total_tp,
@@ -35,10 +36,18 @@ exports.getEtat = async (req, res) => {
 
     const [rows] = await db.query(query, params);
 
-    const result = rows.map(r => ({
-      ...r,
-      montant_total: r.total_heures * r.taux_horaire
-    }));
+    const result = rows.map(r => {
+      const heures_normales = Math.min(r.total_heures, r.heures_contractuelles);
+      const heures_complementaires = Math.max(0, r.total_heures - r.heures_contractuelles);
+      const montant_total = heures_complementaires * r.taux_horaire;
+
+      return {
+        ...r,
+        heures_normales,
+        heures_complementaires,
+        montant_total
+      };
+    });
 
     res.json(result);
 

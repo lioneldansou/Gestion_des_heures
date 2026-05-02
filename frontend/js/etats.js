@@ -40,6 +40,8 @@ async function genererEtat() {
                 <td>${e.total_td}h</td>
                 <td>${e.total_tp}h</td>
                 <td>${e.total_heures}h</td>
+                <td>${e.heures_normales}h</td>
+                <td class="complementaire">${e.heures_complementaires}h</td>
                 <td>${e.taux_horaire} FCFA</td>
                 <td class="montant">${e.montant_total} FCFA</td>
             </tr>
