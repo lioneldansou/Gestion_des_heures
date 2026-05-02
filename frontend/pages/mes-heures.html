@@ -18,10 +18,11 @@
             <li><a href="../index.html"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
         </ul>
     </aside>
-
     <main class="main">
         <h1>Mes Heures</h1>
-
+        <button class="btn-ouvrir" onclick="exporterPDF()">
+        <i class="fas fa-file-pdf"></i> Télécharger mon récapitulatif
+    </button>
         <table>
             <thead>
                 <tr>
@@ -38,7 +39,8 @@
     </main>
 
 </div>
-
+<script src="../libs/jspdf.umd.min.js"></script>
+<script src="../libs/xlsx.full.min.js"></script>
 <script src="../js/mes-heures.js"></script>
 </body>
 </html>

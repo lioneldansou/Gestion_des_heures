@@ -46,6 +46,72 @@ async function genererEtat() {
         `;
     });
 }
+function exporterPDF() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
 
+    doc.setFontSize(16);
+    doc.text('TPG - États de Paiement', 14, 15);
+
+    doc.setFontSize(10);
+    let y = 30;
+
+    // En-têtes
+    doc.setFont(undefined, 'bold');
+    doc.text('Enseignant', 14, y);
+    doc.text('CM', 70, y);
+    doc.text('TD', 90, y);
+    doc.text('TP', 110, y);
+    doc.text('Total', 130, y);
+    doc.text('Montant (FCFA)', 150, y);
+    y += 8;
+
+    // Ligne séparatrice
+    doc.setFont(undefined, 'normal');
+    doc.line(14, y - 4, 200, y - 4);
+
+    // Données du tableau
+    const rows = document.querySelectorAll('tbody tr');
+    rows.forEach(row => {
+        const cells = row.querySelectorAll('td');
+        if (cells.length > 0) {
+            doc.text(cells[0].textContent, 14, y);
+            doc.text(cells[1].textContent, 70, y);
+            doc.text(cells[2].textContent, 90, y);
+            doc.text(cells[3].textContent, 110, y);
+            doc.text(cells[4].textContent, 130, y);
+            doc.text(cells[6].textContent, 150, y);
+            y += 8;
+        }
+    });
+
+    doc.save('etats_paiement.pdf');
+}
+
+function exporterExcel() {
+    const wb = XLSX.utils.book_new();
+
+    const data = [['Enseignant', 'Total CM', 'Total TD', 'Total TP', 'Total Heures', 'Taux Horaire', 'Montant Total']];
+
+    const rows = document.querySelectorAll('tbody tr');
+    rows.forEach(row => {
+        const cells = row.querySelectorAll('td');
+        if (cells.length > 0) {
+            data.push([
+                cells[0].textContent,
+                cells[1].textContent,
+                cells[2].textContent,
+                cells[3].textContent,
+                cells[4].textContent,
+                cells[5].textContent,
+                cells[6].textContent
+            ]);
+        }
+    });
+
+    const ws = XLSX.utils.aoa_to_sheet(data);
+    XLSX.utils.book_append_sheet(wb, ws, 'États de paiement');
+    XLSX.writeFile(wb, 'etats_paiement.xlsx');
+}
 chargerEnseignants();
 chargerPeriodes();

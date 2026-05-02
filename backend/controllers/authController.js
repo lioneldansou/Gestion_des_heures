@@ -21,11 +21,14 @@ exports.login = async (req, res) => {
     }
 
     // Chercher l'enseignant_id si le rôle est enseignant
-    let enseignant_id = null;
-    if (utilisateur.role === 'enseignant') {
-      const [enseignant] = await db.query('SELECT id FROM enseignants WHERE utilisateur_id = ?', [utilisateur.id]);
-      if (enseignant.length > 0) enseignant_id = enseignant[0].id;
-    }
+let enseignant_id = null;
+if (utilisateur.role === 'enseignant') {
+  const [enseignant] = await db.query(
+    'SELECT id FROM enseignants WHERE nom = ? OR prenom = ?', 
+    [utilisateur.nom, utilisateur.prenom]
+  );
+  if (enseignant.length > 0) enseignant_id = enseignant[0].id;
+}
 
     const token = jwt.sign(
       { id: utilisateur.id, role: utilisateur.role },

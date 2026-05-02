@@ -35,6 +35,12 @@
             <button onclick="genererEtat()">
                 <i class="fas fa-search"></i> Générer l'état
             </button>
+            <button onclick="exporterPDF()">
+                <i class="fas fa-file-pdf"></i> Exporter PDF
+            </button>
+            <button onclick="exporterExcel()">
+                <i class="fas fa-file-excel"></i> Exporter Excel
+            </button>
         </div>
 
         <table>
@@ -55,7 +61,8 @@
     </main>
 
 </div>
-
+<script src="../libs/jspdf.umd.min.js"></script>
+<script src="../libs/xlsx.full.min.js"></script>
 <script src="../js/etats.js"></script>
 </body>
 </html>

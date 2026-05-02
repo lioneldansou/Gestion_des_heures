@@ -1,8 +1,9 @@
 const db = require('../db');
 
 exports.getTous = async (req, res) => {
+  const { enseignant_id } = req.query;
   try {
-    const [rows] = await db.query(`
+    let query = `
       SELECT heures_effectuees.*, 
         enseignants.nom as enseignant_nom,
         enseignants.prenom as enseignant_prenom,
@@ -10,7 +11,15 @@ exports.getTous = async (req, res) => {
       FROM heures_effectuees
       JOIN enseignants ON heures_effectuees.enseignant_id = enseignants.id
       JOIN matieres ON heures_effectuees.matiere_id = matieres.id
-    `);
+    `;
+
+    const params = [];
+    if (enseignant_id) {
+      query += ' WHERE heures_effectuees.enseignant_id = ?';
+      params.push(enseignant_id);
+    }
+
+    const [rows] = await db.query(query, params);
     res.json(rows);
   } catch (error) {
     res.status(500).json({ message: 'Erreur serveur' });
