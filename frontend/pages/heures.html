@@ -28,10 +28,18 @@
         <button class="btn-ouvrir" onclick="ouvrirModal()">
             <i class="fas fa-plus"></i> Saisir des heures
         </button>
+        <button class="btn-ouvrir" onclick="telechargerModele()">
+            <i class="fas fa-download"></i> Télécharger le modèle Excel
+        </button>
 
+        <input type="file" id="fichierExcel" accept=".xlsx,.xls" style="display:none" onchange="importerExcel(this)">
+        <button class="btn-ouvrir" onclick="document.getElementById('fichierExcel').click()">
+            <i class="fas fa-file-excel"></i> Importer des heures
+        </button>
         <div class="modal" id="modal">
             <div class="modal-contenu">
                 <h2>Saisir des heures</h2>
+                
                 <div class="form-container">
                     <select id="enseignant_id">
                         <option value="">Enseignant</option>
@@ -80,5 +88,6 @@
 </div>
 
 <script src="../js/heures.js"></script>
+<script src="../libs/xlsx.full.min.js"></script>
 </body>
 </html>

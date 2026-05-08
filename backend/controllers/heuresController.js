@@ -28,6 +28,7 @@ exports.getTous = async (req, res) => {
 
 exports.ajouter = async (req, res) => {
   const { enseignant_id, matiere_id, periode_id, date_cours, type_heure, duree, salle, observations } = req.body;
+  console.log('Données reçues:', req.body);
   try {
     await db.query(
       'INSERT INTO heures_effectuees (enseignant_id, matiere_id, periode_id, date_cours, type_heure, duree, salle, observations) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
@@ -35,6 +36,7 @@ exports.ajouter = async (req, res) => {
     );
     res.json({ message: 'Heures saisies avec succès' });
   } catch (error) {
+    console.log('Erreur:', error.message);
     res.status(500).json({ message: 'Erreur serveur' });
   }
 };
