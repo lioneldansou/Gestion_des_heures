@@ -13,20 +13,21 @@
 /* Sidebar */
 .sidebar {
     width: 250px;
-     background: url('../images/télécharger.jpg') no-repeat center center / cover;
+    background: url('../images/photo.jpg') no-repeat center center / cover;
     color: white;
     padding: 25px 15px;
     display: flex;
     flex-direction: column;
-    border-right: 1px solid #1e1e2e;
+    border-right: 1px solid #d1d5db;
 }
 
 .sidebar h2 {
     text-align: center;
     margin-bottom: 35px;
     font-size: 20px;
-    color: #7c6af7;
+    color: #ffffff;
     letter-spacing: 2px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
 }
 
 .sidebar ul {
@@ -40,7 +41,7 @@
 
 .sidebar ul li a {
     text-decoration: none;
-    color: #aaa;
+    color: #ffffff;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -48,38 +49,41 @@
     border-radius: 10px;
     transition: 0.3s;
     font-size: 15px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    background: rgba(0, 0, 0, 0.25);
+    margin-bottom: 4px;
 }
 
 .sidebar ul li a:hover {
-    background: #1e1e2e;
-    color: #7c6af7;
+    background: rgba(124, 106, 247, 0.7);
+    color: #ffffff;
 }
 
 .sidebar ul li:last-child a {
-    color: #ff6b6b;
+    color: #ffaaaa;
 }
 
 .sidebar ul li:last-child a:hover {
-    background: rgba(21, 21, 21, 0.756);
+    background: rgba(255, 107, 107, 0.5);
 }
 
 /* Main */
 .main {
     flex: 1;
     padding: 40px;
-    background: #262638;
+    background: #f0f2f5;
     overflow-y: auto;
-    color: white;
+    color: #333333;
 }
 
 .main h1 {
     font-size: 26px;
-    color: #ffffff;
+    color: #1e3c72;
     margin-bottom: 5px;
 }
 
 .main p.subtitle {
-    color: #555;
+    color: #888888;
     margin-bottom: 35px;
     font-size: 14px;
 }
@@ -92,17 +96,19 @@
 }
 
 .card {
-    background: #1e1e2e;
+    background: #ffffff;
     padding: 30px 20px;
     border-radius: 15px;
     text-align: center;
     transition: 0.3s;
-    border: 1px solid #2a2a3e;
+    border: 1px solid #d1d5db;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .card:hover {
     transform: translateY(-5px);
     border-color: #7c6af7;
+    box-shadow: 0 6px 20px rgba(124,106,247,0.15);
 }
 
 .card i {
@@ -115,14 +121,15 @@
 .card-2 i { color: #43cea2; }
 .card-3 i { color: #ff7e5f; }
 .card-4 i { color: #f7c948; }
+
 .card h3 {
     font-size: 16px;
-    color: #aaa;
+    color: #888888;
     margin-bottom: 10px;
 }
 
 .card .nombre {
     font-size: 32px;
     font-weight: bold;
-    color: white;
+    color: #1e3c72;
 }

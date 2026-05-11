@@ -10,23 +10,24 @@
     height: 100vh;
 }
 
-/* Sidebar */
+/* Sidebar (inchangé) */
 .sidebar {
     width: 250px;
-     background: url('../images/télécharger.jpg') no-repeat center center / cover;
+    background: url('../images/télécharger.jpg') no-repeat center center / cover;
     color: white;
     padding: 25px 15px;
     display: flex;
     flex-direction: column;
-    border-right: 1px solid #1e1e2e;
+    border-right: 1px solid #d1d5db;
 }
 
 .sidebar h2 {
     text-align: center;
     margin-bottom: 35px;
     font-size: 20px;
-    color: #7c6af7;
+    color: #ffffff;
     letter-spacing: 2px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
 }
 
 .sidebar ul {
@@ -40,7 +41,7 @@
 
 .sidebar ul li a {
     text-decoration: none;
-    color: #aaa;
+    color: #ffffff;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -48,33 +49,36 @@
     border-radius: 10px;
     transition: 0.3s;
     font-size: 15px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    background: rgba(0, 0, 0, 0.25);
+    margin-bottom: 4px;
 }
 
 .sidebar ul li a:hover {
-    background: #1e1e2e;
-    color: #7c6af7;
+    background: rgba(124, 106, 247, 0.7);
+    color: #ffffff;
 }
 
 .sidebar ul li:last-child a {
-    color: #ff6b6b;
+    color: #ffaaaa;
 }
 
 .sidebar ul li:last-child a:hover {
-    background: rgba(21, 21, 21, 0.756);
+    background: rgba(255, 107, 107, 0.5);
 }
 
 /* Main */
 .main {
     flex: 1;
     padding: 40px;
-    background: #13131f;
+    background: #ececec;
     overflow-y: auto;
-    color: white;
+    color: #333;
 }
 
 .main h1 {
     font-size: 26px;
-    color: #ffffff;
+    color: #333333;
     margin-bottom: 30px;
 }
 
@@ -83,19 +87,19 @@
     display: flex;
     gap: 15px;
     margin-bottom: 35px;
-    background: #1e1e2e;
+    background: #f5f5f5;
     padding: 25px;
     border-radius: 15px;
-    border: 1px solid #2a2a3e;
+    border: 1px solid #d6d6d6;
 }
 
 .form-container input {
     flex: 1;
     padding: 12px 15px;
     border-radius: 10px;
-    border: 1px solid #2a2a3e;
-    background: #13131f;
-    color: white;
+    border: 1px solid #cfcfcf;
+    background: white;
+    color: #333;
     font-size: 15px;
     outline: none;
     transition: 0.3s;
@@ -106,7 +110,7 @@
 }
 
 .form-container input::placeholder {
-    color: #555;
+    color: #888;
 }
 
 .form-container button {
@@ -132,10 +136,10 @@
 table {
     width: 100%;
     border-collapse: collapse;
-    background: #1e1e2e;
+    background: white;
     border-radius: 15px;
     overflow: hidden;
-    border: 1px solid #2a2a3e;
+    border: 1px solid #d6d6d6;
 }
 
 thead {
@@ -147,27 +151,33 @@ thead th {
     text-align: left;
     font-size: 14px;
     letter-spacing: 1px;
+    color: white;
 }
 
 tbody tr {
-    border-bottom: 1px solid #2a2a3e;
+    border-bottom: 1px solid #dcdcdc;
     transition: 0.3s;
+    background: #f7f7f7;
+}
+
+tbody tr:nth-child(even) {
+    background: #ededed;
 }
 
 tbody tr:hover {
-    background: #252538;
+    background: #dcdcdc;
 }
 
 tbody td {
     padding: 15px 20px;
-    color: #ccc;
+    color: #333;
     font-size: 15px;
 }
 
 /* Bouton supprimer */
 .btn-supprimer {
     background: rgba(255, 107, 107, 0.1);
-    color: #ff6b6b;
+    color: #ff4d4d;
     border: 1px solid #ff6b6b;
     padding: 8px 15px;
     border-radius: 8px;

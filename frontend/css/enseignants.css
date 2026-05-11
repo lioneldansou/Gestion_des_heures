@@ -10,27 +10,29 @@
     height: 100vh;
 }
 
-/* Sidebar */
+/* Sidebar (inchangé) */
 .sidebar {
     width: 250px;
-    background: url('../images/Books.jpg') no-repeat center center / cover;
+    background: url('../images/télécharger.jpg') no-repeat center center / cover;
     color: white;
     padding: 25px 15px;
     display: flex;
     flex-direction: column;
-    border-right: 1px solid #1e1e2e;
+    border-right: 1px solid #d1d5db;
 }
 
 .sidebar h2 {
     text-align: center;
     margin-bottom: 35px;
     font-size: 20px;
-    color: #7c6af7;
+    color: #ffffff;
     letter-spacing: 2px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
 }
 
 .sidebar ul {
     list-style: none;
+    flex: 1;
 }
 
 .sidebar ul li {
@@ -39,7 +41,7 @@
 
 .sidebar ul li a {
     text-decoration: none;
-    color: #aaa;
+    color: #ffffff;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -47,40 +49,43 @@
     border-radius: 10px;
     transition: 0.3s;
     font-size: 15px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+    background: rgba(0, 0, 0, 0.25);
+    margin-bottom: 4px;
 }
 
 .sidebar ul li a:hover {
-    background: #1e1e2e;
-    color: #7c6af7;
+    background: rgba(124, 106, 247, 0.7);
+    color: #ffffff;
 }
 
 .sidebar ul li:last-child a {
-    color: #ff6b6b;
+    color: #ffaaaa;
 }
 
 .sidebar ul li:last-child a:hover {
-    background: rgba(255, 107, 107, 0.1);
+    background: rgba(255, 107, 107, 0.5);
 }
 
 /* Main */
 .main {
     flex: 1;
     padding: 40px;
-    background: #13131f;
+    background: #ececec;
     overflow-y: auto;
-    color: white;
+    color: #333;
 }
 
 .main h1 {
     font-size: 26px;
-    color: #ffffff;
+    color: #333333;
     margin-bottom: 25px;
 }
 
 /* Bouton ouvrir modal */
 .btn-ouvrir {
     padding: 12px 25px;
-    background: linear-gradient(135deg, #7c6af7, #43cea2);
+    background: linear-gradient(135deg, #7c6af7, #bfc7c4);
     color: white;
     border: none;
     border-radius: 10px;
@@ -104,10 +109,11 @@ table {
     border-collapse: collapse;
     border-radius: 15px;
     overflow: hidden;
+    background: white;
 }
 
 thead {
-    background: linear-gradient(135deg, #7c6af7, #43cea2);
+    background: linear-gradient(135deg, #7c6af7, #cfd8d5);
 }
 
 thead th {
@@ -119,29 +125,29 @@ thead th {
 }
 
 tbody tr {
-    background: #1e1e2e;
-    border-bottom: 1px solid #2a2a3e;
+    background: #f5f5f5;
+    border-bottom: 1px solid #d6d6d6;
     transition: 0.3s;
 }
 
 tbody tr:nth-child(even) {
-    background: #252538;
+    background: #e9e9e9;
 }
 
 tbody tr:hover {
-    background: #2e2e45;
+    background: #dcdcdc;
 }
 
 tbody td {
     padding: 15px 20px;
-    color: #ccc;
+    color: #333;
     font-size: 14px;
 }
 
 /* Bouton supprimer */
 .btn-supprimer {
     background: rgba(255, 107, 107, 0.1);
-    color: #ff6b6b;
+    color: #ff4d4d;
     border: 1px solid #ff6b6b;
     padding: 8px 15px;
     border-radius: 8px;
@@ -163,7 +169,7 @@ tbody td {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(5px);
     justify-content: center;
     align-items: center;
@@ -175,17 +181,17 @@ tbody td {
 }
 
 .modal-contenu {
-    background: #1e1e2e;
+    background: #f4f4f4;
     padding: 40px;
     border-radius: 20px;
     width: 600px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-    border: 1px solid #2a2a3e;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    border: 1px solid #d6d6d6;
 }
 
 .modal-contenu h2 {
     margin-bottom: 25px;
-    color: white;
+    color: #333;
     font-size: 20px;
 }
 
@@ -201,9 +207,9 @@ tbody td {
 .form-container select {
     padding: 12px 15px;
     border-radius: 10px;
-    border: 1px solid #2a2a3e;
-    background: #13131f;
-    color: white;
+    border: 1px solid #cfcfcf;
+    background: #ffffff;
+    color: #333;
     font-size: 15px;
     outline: none;
     transition: 0.3s;
@@ -215,11 +221,11 @@ tbody td {
 }
 
 .form-container input::placeholder {
-    color: #555;
+    color: #888;
 }
 
 .form-container select option {
-    background: #13131f;
+    background: white;
 }
 
 /* Boutons modal */
@@ -231,8 +237,8 @@ tbody td {
 
 .btn-annuler {
     padding: 12px 25px;
-    background: #2a2a3e;
-    color: #aaa;
+    background: #dcdcdc;
+    color: #444;
     border: none;
     border-radius: 10px;
     cursor: pointer;
@@ -241,7 +247,7 @@ tbody td {
 }
 
 .btn-annuler:hover {
-    background: #333350;
+    background: #c8c8c8;
 }
 
 .btn-ajouter {

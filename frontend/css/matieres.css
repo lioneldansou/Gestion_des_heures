@@ -5,14 +5,14 @@
     font-family: 'Inter', 'Segoe UI', sans-serif;
 }
 
-/* Scrollbar personnalisée dark */
+/* Scrollbar claire */
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #1a1a2a;
+    background: #e6e6e6;
     border-radius: 10px;
 }
 
@@ -30,10 +30,10 @@
     height: 100vh;
 }
 
-/* Sidebar avec image bien visible */
+/* Sidebar inchangé */
 .sidebar {
     width: 280px;
-    background: url('../images/télécharger3.jpg') no-repeat center center / cover;
+    background: url('../images/télécharger9.jpg') no-repeat center center / cover;
     color: white;
     padding: 30px 20px;
     display: flex;
@@ -43,7 +43,6 @@
     position: relative;
 }
 
-/* Overlay très léger juste pour la lisibilité du texte */
 .sidebar::before {
     content: '';
     position: absolute;
@@ -55,7 +54,6 @@
     z-index: 0;
 }
 
-/* Pour que le contenu soit au-dessus de l'overlay */
 .sidebar h2,
 .sidebar ul {
     position: relative;
@@ -72,12 +70,15 @@
     color: transparent;
     letter-spacing: 2px;
     font-weight: 700;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.sidebar ul { list-style: none; }
+.sidebar ul {
+    list-style: none;
+}
 
-.sidebar ul li { margin: 5px 0; }
+.sidebar ul li {
+    margin: 5px 0;
+}
 
 .sidebar ul li a {
     text-decoration: none;
@@ -92,7 +93,7 @@
     font-weight: 500;
     position: relative;
     overflow: hidden;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 .sidebar ul li a::before {
@@ -118,37 +119,35 @@
     transform: translateX(5px);
 }
 
-.sidebar ul li:last-child a { color: #ffbbbb; }
+.sidebar ul li:last-child a {
+    color: #ffbbbb;
+}
 
 .sidebar ul li:last-child a:hover {
     background: rgba(255, 107, 107, 0.25);
-    transform: translateX(5px);
 }
 
-/* Main content amélioré */
+/* Main clair */
 .main {
     flex: 1;
     padding: 40px;
-    background: radial-gradient(circle at 20% 30%, #141424, #0d0d18);
+    background: #ececec;
     overflow-y: auto;
-    color: white;
+    color: #333;
 }
 
 .main h1 {
     font-size: 32px;
     margin-bottom: 30px;
     font-weight: 700;
-    background: linear-gradient(135deg, #fff, #b8b8d0);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: #333;
     letter-spacing: -0.5px;
 }
 
-/* Bouton ajout amélioré */
+/* Bouton */
 .btn-ouvrir {
     padding: 14px 30px;
-    background: linear-gradient(135deg, #d6d2f0, #0a0c0c);
+    background: linear-gradient(135deg, #7c6af7, #43cea2);
     color: white;
     border: none;
     border-radius: 50px;
@@ -160,26 +159,24 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    box-shadow: 0 4px 20px rgba(124, 106, 247, 0.3);
+    box-shadow: 0 4px 20px rgba(124, 106, 247, 0.2);
 }
 
-.btn-ouvrir:hover { 
-    opacity: 1;
+.btn-ouvrir:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(124, 106, 247, 0.4);
 }
 
-/* Tableau amélioré */
+/* Tableau */
 table {
     width: 100%;
     border-collapse: collapse;
     border-radius: 20px;
     overflow: hidden;
-    backdrop-filter: blur(10px);
+    background: white;
 }
 
-thead { 
-    background: linear-gradient(135deg, #d6d2f0, #0a0c0c);
+thead {
+    background: linear-gradient(135deg, #7c6af7, #43cea2);
 }
 
 thead th {
@@ -193,30 +190,30 @@ thead th {
 }
 
 tbody tr {
-    background: rgba(30, 30, 46, 0.8);
-    border-bottom: 1px solid rgba(124, 106, 247, 0.1);
+    background: #f7f7f7;
+    border-bottom: 1px solid #dddddd;
     transition: all 0.3s ease;
 }
 
-tbody tr:nth-child(even) { background: rgba(37, 37, 56, 0.8); }
+tbody tr:nth-child(even) {
+    background: #ececec;
+}
 
-tbody tr:hover { 
-    background: rgba(46, 46, 69, 0.95);
-    transform: scale(1.01);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+tbody tr:hover {
+    background: #dddddd;
+    transform: scale(1.005);
 }
 
 tbody td {
     padding: 16px 20px;
-    color: #e0e0f0;
+    color: #333;
     font-size: 14px;
-    font-weight: 400;
 }
 
-/* Bouton supprimer amélioré */
+/* Bouton supprimer */
 .btn-supprimer {
-    background: rgba(255, 107, 107, 0.15);
-    color: #ff6b6b;
+    background: rgba(255, 107, 107, 0.1);
+    color: #ff4d4d;
     border: 1px solid rgba(255, 107, 107, 0.3);
     padding: 8px 18px;
     border-radius: 50px;
@@ -226,35 +223,37 @@ tbody td {
     font-weight: 600;
 }
 
-.btn-supprimer:hover { 
+.btn-supprimer:hover {
     background: #ff6b6b;
     color: white;
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
 }
 
-/* Modal amélioré */
+/* Modal */
 .modal {
     display: none;
     position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
     backdrop-filter: blur(8px);
     justify-content: center;
     align-items: center;
     z-index: 1000;
 }
 
-.modal.active { display: flex; }
+.modal.active {
+    display: flex;
+}
 
 .modal-contenu {
-    background: linear-gradient(135deg, #1e1e2e, #161626);
+    background: #f5f5f5;
     padding: 40px;
     border-radius: 28px;
     width: 550px;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(124, 106, 247, 0.3);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    border: 1px solid #d6d6d6;
     animation: modalFadeIn 0.3s ease;
 }
 
@@ -271,15 +270,12 @@ tbody td {
 
 .modal-contenu h2 {
     margin-bottom: 25px;
-    color: white;
     font-size: 24px;
     font-weight: 700;
-    background: linear-gradient(135deg, #7c6af7, #43cea2);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: #333;
 }
 
+/* Formulaire */
 .form-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -291,25 +287,29 @@ tbody td {
 .form-container select {
     padding: 14px 16px;
     border-radius: 14px;
-    border: 1px solid rgba(124, 106, 247, 0.2);
-    background: rgba(19, 19, 31, 0.8);
-    color: white;
+    border: 1px solid #cccccc;
+    background: white;
+    color: #333;
     font-size: 14px;
     outline: none;
     transition: all 0.3s ease;
 }
 
 .form-container input:focus,
-.form-container select:focus { 
+.form-container select:focus {
     border-color: #7c6af7;
-    background: #13131f;
-    box-shadow: 0 0 0 3px rgba(124, 106, 247, 0.2);
+    box-shadow: 0 0 0 3px rgba(124,106,247,0.15);
 }
 
-.form-container input::placeholder { color: rgba(255, 255, 255, 0.3); }
+.form-container input::placeholder {
+    color: #888;
+}
 
-.form-container select option { background: #1e1e2e; }
+.form-container select option {
+    background: white;
+}
 
+/* Boutons modal */
 .modal-boutons {
     display: flex;
     justify-content: flex-end;
@@ -318,9 +318,9 @@ tbody td {
 
 .btn-annuler {
     padding: 12px 28px;
-    background: rgba(42, 42, 62, 0.8);
-    color: #b8b8d0;
-    border: 1px solid rgba(124, 106, 247, 0.2);
+    background: #dddddd;
+    color: #444;
+    border: none;
     border-radius: 50px;
     cursor: pointer;
     font-size: 14px;
@@ -328,10 +328,8 @@ tbody td {
     transition: all 0.3s ease;
 }
 
-.btn-annuler:hover { 
-    background: rgba(51, 51, 80, 0.9);
-    color: white;
-    transform: translateY(-1px);
+.btn-annuler:hover {
+    background: #cccccc;
 }
 
 .btn-ajouter {
@@ -343,18 +341,11 @@ tbody td {
     cursor: pointer;
     font-size: 14px;
     font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(124, 106, 247, 0.3);
 }
 
-.btn-ajouter:hover { 
-    opacity: 1;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(124, 106, 247, 0.4);
-}
-
-/* Effet de brillance pour les icônes */
-.sidebar ul li a i, .btn-ouvrir i {
+/* Icônes */
+.sidebar ul li a i,
+.btn-ouvrir i {
     transition: transform 0.2s ease;
 }
 
@@ -366,38 +357,39 @@ tbody td {
     transform: rotate(90deg);
 }
 
-/* Responsive design */
+/* Responsive */
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
     }
-    
+
     .sidebar {
         width: 100%;
         padding: 20px;
     }
-    
+
     .main {
         padding: 20px;
     }
-    
+
     .modal-contenu {
         width: 90%;
         margin: 20px;
         padding: 30px;
     }
-    
-    .form-container {
+
+    .form-container,
+    .form-parametres {
         grid-template-columns: 1fr;
     }
-    
+
     table {
         display: block;
         overflow-x: auto;
     }
 }
 
-/* Animation d'apparition pour les lignes du tableau */
+/* Animation tableau */
 tbody tr {
     animation: fadeInUp 0.4s ease backwards;
 }
@@ -418,6 +410,7 @@ tbody tr:nth-child(5) { animation-delay: 0.25s; }
         transform: translateY(0);
     }
 }
+
 /* Paramètres */
 .form-parametres {
     display: grid;
@@ -426,29 +419,28 @@ tbody tr:nth-child(5) { animation-delay: 0.25s; }
 }
 
 .parametre-item {
-    background: #1e1e2e;
+    background: #f5f5f5;
     padding: 25px;
     border-radius: 15px;
-    border: 1px solid #2a2a3e;
+    border: 1px solid #d6d6d6;
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
 .parametre-item label {
-    color: #aaa;
+    color: #666;
     font-size: 14px;
 }
 
 .parametre-item input {
     padding: 12px 15px;
     border-radius: 10px;
-    border: 1px solid #2a2a3e;
-    background: #13131f;
-    color: white;
+    border: 1px solid #cccccc;
+    background: white;
+    color: #333;
     font-size: 15px;
     outline: none;
-    transition: 0.3s;
 }
 
 .parametre-item input:focus {
@@ -457,7 +449,7 @@ tbody tr:nth-child(5) { animation-delay: 0.25s; }
 
 .parametre-item button {
     padding: 10px 20px;
-    background: linear-gradient(135deg, #f7a2d8, #303534);
+    background: linear-gradient(135deg, #f7a2d8, #7c6af7);
     color: white;
     border: none;
     border-radius: 10px;
