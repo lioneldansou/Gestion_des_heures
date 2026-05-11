@@ -33,56 +33,64 @@ async function genererEtat() {
     tbody.innerHTML = '';
 
     data.forEach(e => {
-        tbody.innerHTML += `
-            <tr>
-                <td>${e.nom} ${e.prenom}</td>
-                <td>${e.total_cm}h</td>
-                <td>${e.total_td}h</td>
-                <td>${e.total_tp}h</td>
-                <td>${e.total_heures}h</td>
-                <td>${e.heures_normales}h</td>
-                <td class="complementaire">${e.heures_complementaires}h</td>
-                <td>${e.taux_horaire} FCFA</td>
-                <td class="montant">${e.montant_total} FCFA</td>
-            </tr>
-        `;
-    });
+    const montantNormal = (e.heures_normales * e.taux_horaire).toFixed(0);
+    const montantComplementaire = (e.heures_complementaires * e.taux_horaire).toFixed(0);
+    tbody.innerHTML += `
+        <tr>
+            <td>${e.nom} ${e.prenom}</td>
+            <td>${e.total_cm}h</td>
+            <td>${e.total_td}h</td>
+            <td>${e.total_tp}h</td>
+            <td>${e.total_heures}h</td>
+            <td>${e.heures_normales}h</td>
+            <td class="complementaire">${e.heures_complementaires}h</td>
+            <td>${e.taux_horaire} FCFA</td>
+            <td>${montantNormal} FCFA</td>
+            <td class="montant">${montantComplementaire} FCFA</td>
+        </tr>
+    `;
+});
 }
 function exporterPDF() {
     const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
+    const doc = new jsPDF('landscape');
 
-    doc.setFontSize(16);
+    doc.setFontSize(14);
     doc.text('TPG - États de Paiement', 14, 15);
 
-    doc.setFontSize(10);
+    doc.setFontSize(8);
     let y = 30;
 
-    // En-têtes
     doc.setFont(undefined, 'bold');
     doc.text('Enseignant', 14, y);
-    doc.text('CM', 70, y);
-    doc.text('TD', 90, y);
-    doc.text('TP', 110, y);
-    doc.text('Total', 130, y);
-    doc.text('Montant (FCFA)', 150, y);
-    y += 8;
+    doc.text('CM', 55, y);
+    doc.text('TD', 75, y);
+    doc.text('TP', 95, y);
+    doc.text('Total H.', 110, y);
+    doc.text('H. Normales', 130, y);
+    doc.text('H. Complem.', 158, y);
+    doc.text('Taux', 188, y);
+    doc.text('Mt. Normales', 210, y);
+    doc.text('Mt. Complem.', 248, y);
+    y += 6;
 
-    // Ligne séparatrice
+    doc.line(14, y - 2, 290, y - 2);
     doc.setFont(undefined, 'normal');
-    doc.line(14, y - 4, 200, y - 4);
 
-    // Données du tableau
     const rows = document.querySelectorAll('tbody tr');
     rows.forEach(row => {
         const cells = row.querySelectorAll('td');
         if (cells.length > 0) {
             doc.text(cells[0].textContent, 14, y);
-            doc.text(cells[1].textContent, 70, y);
-            doc.text(cells[2].textContent, 90, y);
-            doc.text(cells[3].textContent, 110, y);
-            doc.text(cells[4].textContent, 130, y);
-            doc.text(cells[6].textContent, 150, y);
+            doc.text(cells[1].textContent, 55, y);
+            doc.text(cells[2].textContent, 75, y);
+            doc.text(cells[3].textContent, 95, y);
+            doc.text(cells[4].textContent, 110, y);
+            doc.text(cells[5].textContent, 130, y);
+            doc.text(cells[6].textContent, 158, y);
+            doc.text(cells[7].textContent, 188, y);
+            doc.text(cells[8].textContent, 210, y);
+            doc.text(cells[9].textContent, 248, y);
             y += 8;
         }
     });
@@ -93,7 +101,11 @@ function exporterPDF() {
 function exporterExcel() {
     const wb = XLSX.utils.book_new();
 
-    const data = [['Enseignant', 'Total CM', 'Total TD', 'Total TP', 'Total Heures', 'Taux Horaire', 'Montant Total']];
+    const data = [[
+        'Enseignant', 'Total CM', 'Total TD', 'Total TP',
+        'Total Heures', 'Heures Normales', 'Heures Complémentaires',
+        'Taux Horaire', 'Montant Heures Normales', 'Montant Heures Complémentaires'
+    ]];
 
     const rows = document.querySelectorAll('tbody tr');
     rows.forEach(row => {
@@ -106,7 +118,10 @@ function exporterExcel() {
                 cells[3].textContent,
                 cells[4].textContent,
                 cells[5].textContent,
-                cells[6].textContent
+                cells[6].textContent,
+                cells[7].textContent,
+                cells[8].textContent,
+                cells[9].textContent
             ]);
         }
     });
