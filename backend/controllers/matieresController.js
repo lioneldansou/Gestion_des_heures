@@ -33,3 +33,18 @@ exports.supprimer = async (req, res) => {
     res.status(500).json({ message: 'Erreur serveur' });
   }
 };
+exports.getParEnseignant = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const [rows] = await db.query(`
+      SELECT DISTINCT matieres.* , departements.nom as departement_nom
+      FROM matieres
+      JOIN heures_effectuees ON matieres.id = heures_effectuees.matiere_id
+      JOIN departements ON matieres.departement_id = departements.id
+      WHERE heures_effectuees.enseignant_id = ?
+    `, [id]);
+    res.json(rows);
+  } catch (error) {
+    res.status(500).json({ message: 'Erreur serveur' });
+  }
+};

@@ -53,9 +53,11 @@ CREATE TABLE IF NOT EXISTS heures_effectuees (
   periode_id INT NOT NULL,
   date_cours DATE NOT NULL,
   type_heure ENUM('CM', 'TD', 'TP') NOT NULL,
-  duree DECIMAL(4,2) NOT NULL,
+  duree DECIMAL(6,2) NOT NULL,
   salle VARCHAR(50),
   observations TEXT,
+  statut ENUM('en_attente', 'accepte', 'refuse') DEFAULT 'en_attente',
+  motif_refus TEXT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (enseignant_id) REFERENCES enseignants(id),
   FOREIGN KEY (matiere_id) REFERENCES matieres(id),
@@ -68,32 +70,27 @@ CREATE TABLE IF NOT EXISTS parametres (
   valeur VARCHAR(255) NOT NULL,
   description TEXT
 );
-INSERT IGNORE INTO utilisateurs (nom, prenom, email, mot_de_passe, role) VALUES (
-  'Admin',
-  'Super', 
-  'admin@tpg.com',
-  '$2b$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
-  'admin'
+
+CREATE TABLE IF NOT EXISTS notifications (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    destinataire_role ENUM('rh', 'admin') NOT NULL,
+    message TEXT NOT NULL,
+    lu BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+-- =====================
+-- DONNÉES DE TEST
+-- =====================
+INSERT IGNORE INTO utilisateurs (nom, prenom, email, mot_de_passe, role) VALUES 
+('Admin', 'Super', 'admin@tpg.com', '$2b$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin'),
+('Ressources', 'Humaines', 'rh@tpg.com', '$2b$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'rh'),
+('Dupont', 'Jean', 'enseignant@tpg.com', '$2b$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'enseignant');
 
 INSERT IGNORE INTO departements (nom) VALUES ('Informatique');
-INSERT IGNORE INTO periodes (libelle, date_debut, date_fin, active) VALUES ('2024-2025', '2024-09-01', '2025-06-30', true);
-INSERT IGNORE INTO utilisateurs (nom, prenom, email, mot_de_passe, role) VALUES (
-  'Ressources',
-  'Humaines',
-  'rh@tpg.com',
-  '$2b$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
-  'rh'
-);
 
-INSERT IGNORE INTO utilisateurs (nom, prenom, email, mot_de_passe, role) VALUES (
-  'Dupont',
-  'Jean',
-  'enseignant@tpg.com',
-  '$2b$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
-  'enseignant'
-);
+INSERT IGNORE INTO periodes (libelle, date_debut, date_fin, active) VALUES 
+('2024-2025', '2024-09-01', '2025-06-30', true);
 
-INSERT IGNORE INTO enseignants (utilisateur_id, nom, prenom, grade, statut, departement_id, taux_horaire, heures_contractuelles) VALUES (
-  3, 'Dupont', 'Jean', 'Assistant', 'Permanent', 1, 5000, 192
-);
+INSERT IGNORE INTO enseignants (utilisateur_id, nom, prenom, grade, statut, departement_id, taux_horaire, heures_contractuelles) 
+VALUES (3, 'Dupont', 'Jean', 'Assistant', 'Permanent', 1, 5000, 192);
